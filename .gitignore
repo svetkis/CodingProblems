@@ -1,0 +1,6 @@
+/.vs
+/CodingProblemsLib/bin
+/*.suo
+/CodingProblemsLib/obj
+/CodingProblemsTests/bin
+/CodingProblemsTests/obj
