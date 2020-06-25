@@ -1,27 +1,21 @@
-﻿using System.Linq;
-using CodingProblemsLib.Problems;
-using NUnit.Framework;
+﻿using CodingProblemsLib.Problems;
+using Xunit;
 
 namespace CodingProblemsTests
 {
     public class LongestPalindromeTest
     {
-        [SetUp]
-        public void Setup()
-        {
-        }
-
-        [Test]
-        [TestCase("aaaa", new[] { "aaaa" })]
-        [TestCase("bbbbb", new[] { "bbbbb" })]
-        [TestCase("abcabcbb", new[]{ "bcb" })]
-        [TestCase("babad", new[] { "bab", "aba"})]
-        [TestCase("cbbd", new[] { "bb" })]
-        [TestCase("a", new[] { "a" })]
+        [Theory]
+        [InlineData("aaaa", new[] { "aaaa" })]
+        [InlineData("bbbbb", new[] { "bbbbb" })]
+        [InlineData("abcabcbb", new[]{ "bcb" })]
+        [InlineData("babad", new[] { "bab", "aba"})]
+        [InlineData("cbbd", new[] { "bb" })]
+        [InlineData("a", new[] { "a" })]
         public void Test(string s, string[] possibleResults)
         {
             string result = LongestPalindrome.Run(s);
-            Assert.AreEqual(possibleResults.Any(str => str == result), true);
+            Assert.Contains(possibleResults, str => str == result);
         }
     }
 }

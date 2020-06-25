@@ -1,22 +1,17 @@
 ﻿using CodingProblems.Problems;
-using NUnit.Framework;
+using Xunit;
 
 namespace CodingProblemsTests
 {
     public class LengthOfLongestSubstringTest
     {
-        [SetUp]
-        public void Setup()
-        {
-        }
-
-        [Test]
-        [TestCase("abcabcbb", 3)]
-        [TestCase("bbbbb", 1)]
-        [TestCase("pwwkew", 3)]
+        [Theory]
+        [InlineData("abcabcbb", 3)]
+        [InlineData("bbbbb", 1)]
+        [InlineData("pwwkew", 3)]
         public void Test(string s, int maxLen)
         {
-            Assert.AreEqual(LengthOfLongestSubstring.Run(s), maxLen);
+            Assert.Equal(LengthOfLongestSubstring.Run(s), maxLen);
         }
     }
 }

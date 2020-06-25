@@ -1,44 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using CodingProblemsLib.Problems;
-using CodingProblemsTests;
-using NUnit.Framework;
+using Xunit;
 using ListNode = CodingProblemsLib.Problems.AddTwoNumbers.ListNode;
 
 namespace CodingProblemsTests
 {
-    public static class ListNodeExtension
-    {
-        public static int[] ToArray(this ListNode node)
-        {
-            List<int> list = new List<int>();
-
-            ListNode currentNode = node;
-            while (currentNode != null)
-            {
-                list.Add(currentNode.val);
-                currentNode = currentNode.next;
-            }
-
-            return list.ToArray();
-        }
-    }
-
     public class AddTwoNumbersTest
     {
-        [SetUp]
-        public void Setup()
-        {
-        }
-
-        [Test]
-        [TestCase(new[] {2, 4, 3}, new[] {5, 6, 4}, new[] {7, 0, 8})]
+        [Theory]
+        [InlineData(new[] {2, 4, 3}, new[] {5, 6, 4}, new[] {7, 0, 8})]
         public void Test(int[] arr1, int[] arr2, int[] result)
         {
             var res = AddTwoNumbers.Run(CreateListNode(arr1), CreateListNode(arr2)).ToArray();
-            Assert.AreEqual(res, result);
+            Assert.Equal(res, result);
         }
 
         private ListNode CreateListNode(int[] intArray)

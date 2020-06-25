@@ -1,23 +1,18 @@
 ﻿using CodingProblemsLib.Problems;
-using NUnit.Framework;
+using Xunit;
 
 namespace CodingProblemsTests
 {
     public class ZigZagTest
     {
-        [SetUp]
-        public void Setup()
-        {
-        }
-
-        [Test]
-        [TestCase("PAYPALISHIRING", 3, "PAHNAPLSIIGYIR")]
-        [TestCase("PAYPALISHIRING", 4, "PINALSIGYAHRPI")]
-        [TestCase("A", 1, "A")]
-        [TestCase("PAYPALISHIRING", 1, "PAYPALISHIRING")]
+        [Theory]
+        [InlineData("PAYPALISHIRING", 3, "PAHNAPLSIIGYIR")]
+        [InlineData("PAYPALISHIRING", 4, "PINALSIGYAHRPI")]
+        [InlineData("A", 1, "A")]
+        [InlineData("PAYPALISHIRING", 1, "PAYPALISHIRING")]
         public void Test(string s, int rows, string result)
         {
-            Assert.AreEqual(ZigZag.Convert(s, rows), result);
+            Assert.Equal(ZigZag.Convert(s, rows), result);
         }
     }
 }
