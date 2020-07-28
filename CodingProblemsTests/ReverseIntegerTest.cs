@@ -13,7 +13,7 @@ namespace CodingProblemsTests
         [InlineData(-1534236469, 0)]
         public void Test(int input, int result)
         {
-            Assert.Equal(ReverseInteger.Reverse(input), result);
+            Assert.Equal(result, ReverseInteger.Reverse(input));
         }
     }
 }
