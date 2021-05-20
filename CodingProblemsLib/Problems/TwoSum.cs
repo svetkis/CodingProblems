@@ -1,4 +1,6 @@
-﻿namespace CodingProblemsLib.Problems
+﻿using System.Collections.Generic;
+
+namespace CodingProblemsLib.Problems
 {
     public class TwoSum
     {
@@ -16,7 +18,24 @@
                 }
             }
 
-            return new[] { 0, 0 };
+            return null;
+        }
+
+        public static int[] RunHashTableSolution(int[] nums, int target)
+        {
+            IDictionary<int, int> numbersDictionary = new Dictionary<int, int>();
+
+            for (int i = 0; i < nums.Length; ++i)
+            {
+                int matchingKey = target - nums[i];
+
+                if (numbersDictionary.ContainsKey(matchingKey))
+                    return new[] { numbersDictionary[matchingKey], i };
+
+                numbersDictionary[nums[i]] = i;
+            }
+
+            return null;
         }
     }
 }
